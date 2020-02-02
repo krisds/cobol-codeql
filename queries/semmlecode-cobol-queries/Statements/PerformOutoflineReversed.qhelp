@@ -1,0 +1,61 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    An out-of-line <code>PERFORM</code> statement will transfer
+    control to the first argument <code>procedure-name-1</code>, and
+    continue execution until reaching the end of the second
+    argument <code>procedure-name-2</code>. In normal use,
+    where <code>procedure-name-2</code> follows
+    <code>procedure-name-1</code> in the source code, control flow
+    will proceed linearly between the two. However, if this is not the
+    case, <code>procedure-name-2</code> is unlikely to be reached.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Carefully inspect the two targets of the <code>PERFORM</code>
+    statement to determine the intention of the code. The developer
+    may have accidentally reversed the arguments, or the targets
+    have been moved since this statement was written.
+  </p>
+  <p>
+    It is possible that the control flow is as desired. However,
+    developers unfamiliar with the code are likely to find this
+    extremely surprising and hard to read. In this case it is highly
+    recommended to find an alternative way to express the current
+    behavior.
+  </p>
+  <p>
+    It is common practice to use an ascending numerical suffix in
+    paragraph names to make these kinds of errors easier to spot.
+  </p>
+</recommendation>
+<example>
+  <p>
+    In the following example the developer has accidentally reversed
+    the arguments to the <code>PERFORM</code> statement. As a result,
+    the <code>PERFORM</code> statement will never finish executing.
+  </p>
+  <sample src="PerformOutoflineReversed.CBL" />
+  <p>
+    The solution is to correct the order of the arguments to
+    the <code>PERFORM</code> statement.
+  </p>
+  <sample src="PerformOutoflineReversedGood.CBL" />
+  <p>
+    It is also possible to rename the paragraphs to use numerical
+    suffixes.
+  </p>
+  <sample src="PerformOutoflineReversedGood2.CBL" />
+</example>
+<references>
+  <li>
+    IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsperf.html">PERFORM statement</a>.
+  </li>
+</references>
+</qhelp>

@@ -1,0 +1,13 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>
+      This metric measures the number of references to maps for terminal interfacing in each compilation unit.
+    </p>
+  </overview>
+  <references>
+    <li>IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSGMCP_4.2.0/com.ibm.cics.ts.applicationprogramming.doc/topics/dfhp3_intro_bms.html?cp=SSGMCP_4.2.0%2F11-8-8&amp;lang=en">Basic Mapping Support (BMS)</a>.</li>
+  </references>
+</qhelp>

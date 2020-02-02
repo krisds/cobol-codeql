@@ -1,0 +1,16 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>
+      This metric measures the SEI maintainability index for a compilation unit. The index is designed to give an automated assessment of the maintainability of a piece of software. This calculation is based on existing metrics such as the McCabe Cyclomatic Complexity and Halstead volume. A low value can be used to identify error-prone areas of existing code-bases in order to guide testing and review effort.
+    </p>
+  </overview>
+
+  <references>
+    <li>D. M. Coleman, D. Ash, B. Lowther, and P. W. Oman, "Using
+metrics to evaluate software system maintainability," IEEE Computer,
+vol. 27, no. 8, pp. 44–49, August 1994</li>
+  </references>
+</qhelp>

@@ -1,0 +1,55 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Not passing the expected number of arguments to a program may cause unexpected
+    behavior.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Check the parameters that a program is expecting and adjust your <code>CALL</code> accordingly.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following program expects two parameters, with an optional third:
+  </p>
+
+  <sample src="CallHasWrongNumberOfArgumentsTarget.CBL" />
+  
+  <p>
+    As a consequence, both of these <code>CALL</code> statements are incorrect.
+    The first, because it passes too few arguments
+    and the second, because it passes too many.
+  </p>
+  
+  <sample src="CallHasWrongNumberOfArgumentsBad.CBL" />
+  
+  <p>
+    Keeping the expected parameter list specified by the program in mind, 
+    the following <code>CALL</code> statements are acceptable.
+  </p>
+  
+  <sample src="CallHasWrongNumberOfArgumentsGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpscall.html">CALL statement</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpdshd.html">PROCEDURE DIVISION header</a>.
+  </li>
+</references>
+
+</qhelp>

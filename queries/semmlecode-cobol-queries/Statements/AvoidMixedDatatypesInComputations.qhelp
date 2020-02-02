@@ -1,0 +1,46 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Avoid mixing datatypes in computations.
+    When you do, the compiler will have to insert implicit data conversions.
+    Apart from adding extra runtime overhead,
+    this may also introduce subtle rounding errors in computations.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Move the data into compatible data items
+    before running the computation. 
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following statement adds a <code>DISPLAY</code> item to a <code>BINARY</code> one:
+  </p>
+
+  <sample src="AvoidMixedDatatypesInComputationsBad.CBL" />
+  
+  <p>
+    It is better to explicitly code the conversion
+    and rework the calculation to make use of matching types:
+  </p>
+  
+  <sample src="AvoidMixedDatatypesInComputationsGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://publib.boulder.ibm.com/iseries/v5r2/ic2924/books/c092540313.htm#HDRDTACONV">Data Format Conversions</a>.
+  </li>
+</references>
+
+</qhelp>

@@ -1,0 +1,49 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Do not place logic in copybooks.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    While a copybook can be used to share common pieces of code, sharing logic 
+    in this way can lead to inconsistent systems.
+  </p>
+  <p>
+    Consider having to update some of the logic in this copybook. Doing so will
+    require rebuilding and redeploying all modules depending on that copybook.
+    Failing to do so would risk running a system where the same data will yield
+    different behavior across different modules.
+  </p>
+  <p>
+    If you need to share logic, consider placing it into a module of its own.
+    In that way any changes to the logic will require only a recompile and redeploy
+    of that single module. There is then no risk of fracturing your system.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Say that you have a copybook containing some business logic, for example:
+  </p>
+
+  <sample src= "CodeInCopybook.CPY" />
+  
+  <p>
+    This can be resolved by moving this logic into a module of its own.
+  </p>
+
+  <sample src= "CodeInCopybook.CBL" />
+  
+  <p>
+    In addition all <code>COPY</code> statements referencing the old copybook
+    need to be replaced with <code>CALL</code> statements referencing the new module.
+  </p>
+</example>
+
+</qhelp>

@@ -1,0 +1,38 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Manually specifying a file's block size may leave you with non-optimal
+    values. It is better to allow the operating system to determine the block
+    size.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Set the block size to zero instead. This allows the operating system
+    to supply a system-determined block size for you.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, there are two file descriptors.
+    The first, <code>HARDCODED</code>, sets the block size in code to 10 records.
+    The second, <code>BY-COMPILER</code>, leaves the block size to be
+    determined by the operating system. This is the preferred form.
+  </p>
+
+  <sample src= "BlockSizeOverridden.CBL" />
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_4.1.0/com.ibm.entcobol.doc_4.1/PGandLR/tasks/tpqsm14.htm">Setting block sizes</a>.
+  </li>
+</references>
+
+</qhelp>

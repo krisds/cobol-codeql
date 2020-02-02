@@ -1,0 +1,53 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>
+      Duplicate procedures with identical or very similar
+      contents indicate poorly structured code that is hard to
+      maintain. The artificially inflated amount of code hinders
+      comprehension, and ranges of similar but subtly different lines
+      can mask the real purpose or intention behind the code.
+      Duplicate procedures can also suffer from update
+      anomalies, where only one of several copies of the code is
+      updated to address a defect or add a feature, causing them to
+      slowly evolve apart.
+    </p>
+    <p>
+      In some cases, duplicate procedures can also indicate
+      a bug where a procedure was copied with the aim of
+      changing it in some way, but the programmer then forgot to
+      perform the intended change.
+    </p>
+
+  </overview>
+  
+  <recommendation>
+    <p>
+      At its simplest, procedure duplication can be
+      addressed by removing all but one of the
+      duplicate procedures and replacing uses of the
+      removed procedures with the (now canonical) single
+      remaining definition instead.
+    </p>
+
+    <p>
+      If two procedures are mostly, but not completely,
+      identical, it is often possible to factor out the common
+      functionality into a new procedure. This improves
+      reusability and resolves the code duplication.
+    </p>
+
+</recommendation>
+
+<references>
+
+<li>Elmar Juergens, Florian Deissenboeck, Benjamin Hummel, and Stefan Wagner. 2009.
+Do code clones matter?  In <em>Proceedings of the 31st International Conference on
+Software Engineering</em> (ICSE '09). IEEE Computer Society, Washington, DC, USA,
+485-495.
+</li>
+
+</references>
+</qhelp>

@@ -1,0 +1,45 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When you <code>OPEN</code> a file, it is good practice to also close it in the code.
+    Open files require resources which may not get cleaned up properly otherwise.
+    In addition, data written to open files may not get flushed to disk until they are properly closed.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Add a <code>CLOSE</code> statement to close the file.
+  </p>
+</recommendation>
+
+<example>
+<p>
+In the following example, a file is opened for input:
+</p>
+
+<sample src="FileNeverClosedBad.CBL" />
+
+<p>
+It should be closed for correctness:
+</p>
+
+<sample src="FileNeverClosedGood.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SG3_3.4.0/com.ibm.entcobol.doc_3.4/rlpsopen.htm">OPEN statement</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SG3_3.4.0/com.ibm.entcobol.doc_3.4/rlpsclos.htm">CLOSE statement</a>.
+  </li>
+</references>
+</qhelp>

@@ -1,0 +1,53 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Expecting a return value when the callee does not return one
+    is a likely bug.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Remove the return value from the <code>CALL</code> statement.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following program does not return a value:
+  </p>
+
+  <sample src="CallExpectingReturnValueTarget.CBL" />
+  
+  <p>
+    As a consequence, this <code>CALL</code> statement, 
+    which expects a return value, is incorrect:
+  </p>
+  
+  <sample src="CallExpectingReturnValueBad.CBL" />
+  
+  <p>
+    Removing the return value clause will fix this:
+  </p>
+  
+  <sample src="CallExpectingReturnValueGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpscall.html">CALL statement</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpdshd.html">PROCEDURE DIVISION header</a>.
+  </li>
+</references>
+
+</qhelp>

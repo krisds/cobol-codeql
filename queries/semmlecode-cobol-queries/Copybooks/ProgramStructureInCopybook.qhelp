@@ -1,0 +1,61 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Keep program structure out of copybooks.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    The nature of copybooks allows them to contain pretty much anything.
+    To keep the overall code readable, though, you should not define program structure in them.
+    It is better to limit copybooks to shared data definitions or program logic.
+    Everything else should be coded in the main source file.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Consider the following source file:
+  </p>
+
+  <sample src= "ProgramStructureInCopybookBad.CBL" />
+  
+  <p>
+    Most of its structure has been hidden inside the copybook it includes:
+  </p>
+
+  <sample src= "ProgramStructureInCopybookBadCOPYBOOK.CPY" />
+  
+  <p>
+    As can be seen, it defines the working storage section, and starts the procedure division.
+    While it could make sense to have the data definitions and business logic in copybooks,
+    coding in this way just makes things more complicated.
+  </p>
+  
+  <p>
+    This can be fixed by letting the main file define the program structure,
+    and limiting the copybooks to the data definitions and logic:
+  </p>
+
+  <sample src= "ProgramStructureInCopybookGood.CBL" />
+
+  <p>
+    With <code>ENTRIES</code>:
+  </p>
+
+  <sample src= "ProgramStructureInCopybookGoodENTRIES.CPY" />
+
+  <p>
+    And <code>LOGIC</code>:
+  </p>
+
+  <sample src= "ProgramStructureInCopybookGoodLOGIC.CPY" />
+  
+</example>
+
+</qhelp>

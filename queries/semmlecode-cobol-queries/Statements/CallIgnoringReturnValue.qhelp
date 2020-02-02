@@ -1,0 +1,52 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Ignoring a return value from a subprogram is a likely bug.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Amend the <code>CALL</code> statement to capture the return value.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following program provides a return value:
+  </p>
+
+  <sample src="CallIgnoringReturnValueTarget.CBL" />
+  
+  <p>
+    As a consequence, this <code>CALL</code> statement, 
+    which ignores this return value, is incorrect:
+  </p>
+  
+  <sample src="CallIgnoringReturnValueBad.CBL" />
+  
+  <p>
+    You can fix this by capturing the return value:
+  </p>
+  
+  <sample src="CallIgnoringReturnValueGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpscall.html">CALL statement</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpdshd.html">PROCEDURE DIVISION header</a>.
+  </li>
+</references>
+
+</qhelp>

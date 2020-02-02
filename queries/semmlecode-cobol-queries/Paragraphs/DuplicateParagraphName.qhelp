@@ -1,0 +1,48 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Paragraphs with the same name within the same section, or directly
+    contained within the same procedure division, should be avoided.
+    Depending on the compiler, the program may not compile, and if it
+    does, calls referencing the duplicated name may result in either
+    of the duplicated paragraphs being executed.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    The program in question should be carefully inspected to determine
+    the intended meaning. It is likely that either only one of the
+    paragraphs should be present, or else that one should be renamed.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, there are two paragraphs
+    named <code>CALC-A</code> with similar code.
+  </p>
+
+  <sample src= "DuplicateParagraphName.CBL" />
+
+  <p>
+    In this case, the second paragraph was copied from the first and
+    modified, but the name was not updated. The second paragraph
+    should be renamed to <code>CALC-B</code>.
+  </p>
+
+  <sample src= "DuplicateParagraphNameGood.CBL" />
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlpdsed.html?lang=en">Procedures</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlrefpro.html?lang=en">References to PROCEDURE DIVISION names</a>.
+  </li>
+</references>
+
+</qhelp>

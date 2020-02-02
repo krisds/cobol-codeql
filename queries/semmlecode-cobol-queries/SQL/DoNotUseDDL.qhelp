@@ -1,0 +1,32 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Modifying the structure of a database is risky,
+    especially when done by a program which may run at any time.
+    At best you may break other programs.
+    At worst you may break your database, or the integrity of its data.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Inspect all code which modifies database structure.
+  </p>
+</recommendation>
+
+<references>
+  <li>
+    Wikipedia:
+    <a href="https://en.wikipedia.org/wiki/Data_definition_language">Data definition language</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="https://www.ibm.com/support/knowledgecenter/ssw_i5_54/sqlp/rbafysqltech.htm">Data definition language</a>.
+  </li>
+</references>
+
+</qhelp>

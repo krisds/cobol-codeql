@@ -1,0 +1,44 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Programs containing sections with duplicate names are unlikely to
+    compile successfully. Where they do, the behavior is not well defined.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    The program in question should be carefully inspected to determine
+    the intended meaning. It is likely that either only one of the
+    sections should be present, or else that one should be renamed.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, there are two sections
+    named <code>FIRST</code>.
+  </p>
+
+  <sample src= "DuplicateSectionName.CBL" />
+
+  <p>
+    In this case, the second section was originally a duplicate copy
+    of the first and should be removed.
+  </p>
+
+  <sample src= "DuplicateSectionNameGood.CBL" />
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlpdsed.html?lang=en">Procedures</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlrefpro.html?lang=en">References to 'PROCEDURE DIVISION' names</a>.
+  </li>
+</references>
+
+</qhelp>

@@ -1,0 +1,49 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Do not change source format in copybooks.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Switching the source format in copybooks may break the code which includes
+    it but doesn't expect a change in format. 
+  </p>
+  <p>
+    Instead, choose a common format and set it at the compiler level, or at the
+    top of the main source files. 
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Say that you have a program which includes a copybook:
+  </p>
+
+  <sample src= "ChangingSourceFormatInCopybook.CBL" />
+  
+  <p>
+    At first sight there is nothing wrong with this code. 
+    However, it may still get broken by a copybook which switches the source
+    format (for whatever reason):
+  </p>
+
+  <sample src= "ChangingSourceFormatInCopybook.CPY" />
+  
+  <p>
+    The change in the copybook from FIXED to FREE causes line 300 to no longer parse correctly.
+  </p>
+</example>
+
+<references>
+  <li>MicroFocus Supportline:
+    <a href="https://supportline.microfocus.com/documentation/books/nx50/lhintr.htm">Introduction to the COBOL Language</a>.
+  </li>
+</references>
+
+</qhelp>

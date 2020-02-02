@@ -1,0 +1,50 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    The <code>STOP</code> <i>literal</i> form of the statement is
+    considered obsolete and should not be used. It also cannot be used
+    in IBM Enterprise Cobol in programs compiled with
+    the <code>THREAD</code> compiler option. Historically it has been
+    used to temporarily halt a program to allow for operator
+    intervention.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    When operator intervention is required it is preferred to instead
+    use the <code>DISPLAY</code> and <code>ACCEPT</code> statements
+    for outputting and inputting information respectively.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In this example the obsolete form of the <code>STOP</code>
+    statement has been used.
+  </p>
+
+  <sample src="StopLiteralObsolete.CBL" />
+  
+  <p>
+    Here it has been replaced with the <code>DISPLAY</code>
+    and <code>ACCEPT</code> statements.
+  </p>
+  <sample src="StopLiteralObsoleteGood.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlpsstop.html">STOP statement</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsacce.html">ACCEPT statement</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsdisp.html">DISPLAY statement</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/rlpreobs.html">Obsolete language elements</a>.
+  </li>
+</references>
+
+</qhelp>

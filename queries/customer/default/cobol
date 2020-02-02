@@ -1,0 +1,4 @@
+@import "../../suites/cobol/metrics"
+@import "../../suites/cobol/correctness"
+@import "../../suites/cobol/maintainability"
+@import "../../suites/cobol/readability"

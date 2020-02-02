@@ -1,0 +1,25 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>This metric measures the number of different <code>CALL</code> targets in a program.</p>
+    
+    <p>
+      A program that calls a high number of targets can be very difficult to understand.
+    </p>
+  </overview>
+
+  <recommendation>
+    <p>
+      Analyze the program and try to split it into separate logical modules.
+    </p>
+  </recommendation>
+
+  <references>
+    <li>
+      IBM Knowledge Center:
+      <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpscall.html">CALL statement</a>.
+    </li>
+  </references>
+</qhelp>

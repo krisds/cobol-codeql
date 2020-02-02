@@ -1,0 +1,55 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    An <code>EVALUATE</code> statement takes as input a number of
+    selection objects, the values of which are used to determine
+    which subsequent <code>WHEN</code> phrase to execute. If the
+    selection subjects do not match the selection objects in any of the
+    <code>WHEN</code> phrases then execution passes to the next
+    statement.
+  </p>
+  <p>
+    It is common that the result of modifications elsewhere in the
+    code base can change the range of values in variables appearing in
+    the selection subjects. If this happens then even if
+    the <code>WHEN</code> phrases were previously exhaustive, this may
+    no longer be the case, and execution will silently fall through to
+    the next statement.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Insert a <code>WHEN OTHER</code> phrase to log or otherwise handle
+    the unexpected value of the selection subject.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, it is assumed that <code>N</code> only
+    ever has the values 1, 2 or 3.
+  </p>
+
+  <sample src="WHENOTHER.CBL" />
+  
+  <p>
+    By inserting a <code>WHEN OTHER</code> phrase with a simple
+    output statement, a violation of the assumption about the
+    possible values of <code>N</code> will be reported.
+  </p>
+  <sample src="WHENOTHERGood.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlpseval.html?lang=en">EVALUATE statement</a>.
+  </li>
+</references>
+
+</qhelp>

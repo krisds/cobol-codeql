@@ -1,0 +1,52 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When a loop makes use of a counter, care must be taken not to update the value of
+    that counter within the loop in such a way that it prevents the loop from ending.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Do not modify the loop counter within the loop itself.
+    Use a separately maintained variable instead, or change the form of the loop to
+    one without a counter.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following example seemingly loops a counter <code>I</code> from 1 to 10, 
+    incrementing it by 1 at each step.
+    But, as can be seen on lines 200-400, under certain conditions the
+    loop counter is set back by 2. Depending on the data this may cause the loop to
+    never reach the end value of 10 and keep looping indefinitely.
+  </p>
+
+  <sample src="EndlessVaryingBad.CBL" />
+
+  <p>
+    In order to fix this you will have to figure out what the code is trying to do
+    and why it is changing the value of the counter.
+  </p>
+
+  <p>
+    For the above example, one solution would be to change the nature of the loop
+    so that you manage all updates to the counter yourself. At the very least this
+    will remove any possible confusion on how many times the loop may run.
+  </p>
+
+  <sample src="EndlessVaryingGood.CBL" />
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsperf.html">PERFORM statement</a>.
+  </li>
+</references>
+
+</qhelp>

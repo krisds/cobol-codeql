@@ -1,0 +1,56 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Although it is legal to use a <code>MOVE</code> statement to copy
+    data between data items of different categories (see reference
+    'Valid and invalid elementary moves'), it not recommended. If the
+    data has not been properly sanitized or checked, undefined
+    behavior may follow when the data is used in a context where it
+    does not fit.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Carefully consider which categories are suitable for the data
+    items in your program. If it is necessary to move data between
+    items of differing categories, check that the contents of the
+    sending item will be valid for the category of the receiver before
+    moving. Alternatively, use an intrinsic function to perform the
+    conversion.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the example below, if <code>ALPHANUMERIC-ITEM</code> contains
+    any non-digit characters and <code>NUMERIC-ITEM</code> is later
+    used in a comparison with another numeric item or an integer
+    literal the results will be undefined.
+  </p>
+
+  <sample src="MoveStatementIncompatible.CBL" />
+  
+  <p>
+    In the following example the intrinsic
+    function <code>NUMVAL</code> has been used to perform the
+    conversion. Note that if <code>ALPHANUMERIC-ITEM</code> contains
+    any non-digit characters an abend will occur immediately.
+  </p>
+  <sample src="MoveStatementIncompatibleGood.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsmove.html">MOVE statement</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/rlpsmovea2.html">Valid and invalid elementary moves</a>.
+  </li>
+</references>
+
+</qhelp>

@@ -1,0 +1,62 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    <code>GO TO</code> statements may make the code more difficult to understand and maintain.
+    Consequently, the use of <code>GO TO</code> statements is deprecated except as a mechanism
+    for breaking out of a section.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    In most cases the code can be rewritten and/or rearranged by using structured control flow
+    constructs, such as <code>IF</code> and <code>PERFORM UNTIL</code>.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Given a task of displaying all numbers from one to ten, the following example shows
+    how this might be done by means of a conditional <code>GO TO</code> statement.
+  </p>
+  <sample src="UseOfGoToBad.CBL" />
+  <p>
+    The intent of this example is not clear from the code itself. If not for the label
+    <code>ONE-TO-TEN</code> it would require careful analysis of the control flow to establish
+    what the code is doing. Even despite the label, it may take some time to assert that this
+    code will display <code>10</code> but not <code>11</code>.
+  </p>
+  <p>
+    Contrast this with the equivalent code making use of a <code>PERFORM</code> loop:
+  </p>
+  <sample src="UseOfGoToGood.CBL" />
+  <p>
+    This version is both more concise and more readable.
+  </p>
+
+  <p>
+    The <code>GO TO</code> statement may be the best solution for breaking out of
+    a section, without adversely affecting the readability of the function. For instance:
+  </p>
+  <sample src="UseOfGoToExit.CBL" />
+  <p>
+    The <code>GO TO</code> statement in the <code>SAMPLE</code> section jumps to the final
+    paragraph in that section, which holds a single <code>EXIT</code> statement.
+    Such uses will not be flagged by this rule.
+  </p>
+</example>
+
+<references>
+  <li>
+    E. W. Dijkstra Archive: <a href="http://www.cs.utexas.edu/users/EWD/transcriptions/EWD02xx/EWD215.html">A Case against the GO TO Statement (EWD-215)</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_3.4.0/com.ibm.entcobol.doc_3.4/rlpsgoto.htm">GO TO statement</a>.
+  </li>
+</references>
+</qhelp>

@@ -1,0 +1,30 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    This form of the <code>GO TO</code> statement is classed as an
+    obsolete element in the ANSI'85 standard and has been deleted from
+    the ISO 2002 standard. Its use is strongly discouraged as it must
+    be combined with the <code>ALTER</code> statement, making this use
+    of unstructured control flow even less comprehensible and
+    maintainable.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Replace this use of the <code>GO TO</code> statement with
+    structured programming constructs such as
+    the <code>EVALUATE</code> statement or an
+    inline <code>PERFORM</code> statement.
+  </p>
+</recommendation>
+
+<include src="AlterExample.qhelp" />
+
+<include src="AlterReferences.qhelp" />
+
+</qhelp>

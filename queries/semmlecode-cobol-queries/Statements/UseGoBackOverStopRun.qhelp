@@ -1,0 +1,54 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    The <code>STOP RUN</code> statement causes execution to be
+    terminated immediately and returns control to the system, even when
+    the current program is a subprogram. Usually
+    it is better to use the <code>GOBACK</code> statement, which
+    returns control to the system from the main program, or to the
+    calling program from a subprogram.
+  </p>
+  <p>
+    Programs that use <code>STOP RUN</code> may therefore behave as
+    expected when used as main programs, but may give unexpected
+    results when called as a subprogram, by causing the execution to
+    terminate early.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Replace the <code>STOP RUN</code> statement with <code>GOBACK</code>.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the example below, where the top-level program
+    calls <code>SUBPROGRAM</code>, the text "SUBPROGRAM EXECUTION
+    COMPLETE." will not be displayed due to use of the <code>STOP
+    RUN</code> statement.
+  </p>
+
+  <sample src="UseGoBackOverStopRun.CBL" />
+  
+  <p>
+    Change <code>STOP RUN</code> to <code>GOBACK</code>, and the
+    subprogram will now return correctly to <code>TOP-LEVEL</code>.
+  </p>
+  <sample src="UseGoBackOverStopRunGood.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsgoba.html">GOBACK statement</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsstop.html">STOP statement</a>.
+  </li>
+</references>
+
+</qhelp>

@@ -1,0 +1,10 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>This metric measures the number of lines of code found in the procedure divisions in a file. This may include multiple possibly-nested programs.</p>
+    <include src="FLinesOfCodeOverview.qhelp" />
+  </overview>
+  <include src="cobol/LinesOfCodeAddressAndReferences.qhelp" />
+</qhelp>

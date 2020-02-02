@@ -1,0 +1,20 @@
++ semmlecode-cobol-queries/Metrics/Files/FLinesOfCode.ql: /Metrics/Files
++ semmlecode-cobol-queries/Metrics/Files/FCommentRatio.ql: /Metrics/Files
+
++ semmlecode-cobol-queries/Metrics/Divisions/PDLinesOfCode.ql: /Metrics/Divisions
++ semmlecode-cobol-queries/Metrics/Divisions/DDLinesOfCode.ql: /Metrics/Divisions
+
++ semmlecode-cobol-queries/Metrics/Files/FLinesOfDuplicatedCode.ql: /Metrics/Duplication
++ semmlecode-cobol-queries/Metrics/Files/FLinesOfSimilarCode.ql: /Metrics/Duplication
+
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CUCICSFiles.ql: /Metrics/Compilation Units
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CUCICSMaps.ql: /Metrics/Compilation Units
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CUCICSQueues.ql: /Metrics/Compilation Units
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CUCICSStmts.ql: /Metrics/Compilation Units
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CUSQLStmts.ql: /Metrics/Compilation Units
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CUCyclomaticComplexity.ql: /Metrics/Compilation Units
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CUSEIMaintainabilityIndex.ql: /Metrics/Compilation Units
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CUNestingDepth.ql: /Metrics/Compilation Units
++ semmlecode-cobol-queries/Metrics/CompilationUnits/CalledTargets.ql: /Metrics/Compilation Units
+
++ semmlecode-cobol-queries/Metrics/Statements/NestingDepth.ql: /Metrics/Statements

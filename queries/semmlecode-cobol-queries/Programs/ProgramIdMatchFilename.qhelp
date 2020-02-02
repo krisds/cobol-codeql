@@ -1,0 +1,46 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    The <code>PROGRAM-ID</code> paragraph specifies the name by which
+    a program is known. For top-level program definitions this should
+    always match the name of the file containing the program. To do
+    otherwise is confusing and risks referencing the wrong program
+    when using the <code>CALL</code> statement from another program.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Update the <code>PROGRAM-ID</code> paragraph or the file name so
+    that the two are consistent.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the example below, the file name is
+    "MYPROGRAM.CBL", but the <code>PROGRAM-ID</code>
+    paragraph does not match this.
+  </p>
+
+  <sample src="ProgramIdMatchFilename.CBL" />
+  
+  <p>
+    Here the <code>PROGRAM-ID</code> paragraph has been updated to
+    match the file name.
+  </p>
+  <sample src="ProgramIdMatchFilenameGood.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlidepid.html">PROGRAM-ID paragraph</a>.
+  </li>
+</references>
+
+</qhelp>

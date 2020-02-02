@@ -1,0 +1,49 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Including further decision statements within
+    an <code>EVALUATE</code> statement can give rise to expansive
+    and difficult to read code structure. As the <code>EVALUATE</code>
+    statement permits use of conditional expressions, it is often
+    better to use this capability and avoid deeply nested statements.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Consider splitting the <code>WHEN</code> branch containing
+    conditional logic into multiple branches by introducing additional
+    selection subjects and objects where necessary.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example an <code>IF</code> statement has been
+    nested inside the outer <code>WHEN</code> statement.
+  </p>
+
+  <sample src="EvaluateWhenConditionalLogic.CBL" />
+  
+  <p>
+    The conditional expression comparing <code>X</code>
+    and <code>Y</code> can be pulled out into a new selection subject.
+    The <code>WHEN</code> branch is then split into two branches and a
+    new selection object is introduced that compares against the value
+    of this comparison.
+  </p>
+  <sample src="EvaluateWhenConditionalLogicGood.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlpseval.html?lang=en">EVALUATE statement</a>.
+  </li>
+</references>
+
+</qhelp>

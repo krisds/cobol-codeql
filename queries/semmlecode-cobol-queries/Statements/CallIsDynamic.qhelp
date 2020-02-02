@@ -1,0 +1,51 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    The correct subprogram to call may be identified by a value in a data item.
+    Modifying the value of this data item makes the code harder to understand and to maintain.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Rather than using a data item as a <code>CALL</code>'s target, encode the name of the subprogram as a literal.
+    Evaluate the logic which updates the targeted subprogram and modify to match.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following data item and <code>CALL</code> statement seem straightforward to understand:
+  </p>
+
+  <sample src="CallIsDynamicBad.CBL" />
+  
+  <p>
+    But this is not the case if the value of that data item gets modified somewhere in the code:
+  </p>
+  
+  <sample src="CallIsDynamicBad2.CBL" />
+
+  <p>
+    Now, in order to understand the behavior of the <code>CALL</code> statement, we must analyze the entire program.
+  </p>
+
+  <p>
+    It is advised to ensure that the targets of a <code>CALL</code> statement are made explicit in the statement itself:
+  </p>
+  
+  <sample src="CallIsDynamicGood.CBL" />
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpscall.html">CALL statement</a>.
+  </li>
+</references>
+
+</qhelp>

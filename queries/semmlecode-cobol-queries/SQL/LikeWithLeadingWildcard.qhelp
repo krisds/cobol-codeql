@@ -1,0 +1,56 @@
+<!DOCTYPE qhelp SYSTEM "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    The LIKE predicate searches a database for strings with a matching pattern.
+    If that chosen pattern starts with a wildcard (such as '%'), that search
+    will not be able to make use of indexes on the data, 
+    which can significantly slow down your query.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Consider alternate ways of structuring and matching your data.
+  </p>
+  <p>
+    If a leading wildcard is really needed one technique is to (also) store
+    the data in reverse so that you can search with a trailing wildcard instead.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following query searches for employees named "Doe":
+  </p>
+
+  <sample src="LikeWithLeadingWildcardBad.CBL" />
+  
+  <p>
+    A better solution would be to have the last names as a separate field,
+    and to do an exact match on those. Add an index to that field for
+    maximum efficiency:
+  </p>
+  
+  <sample src="LikeWithLeadingWildcardGood1.CBL" />
+  
+  <p>
+    If the data can't be separated for some reason, storing the inverse values
+    in combination with a search for the inverse pattern (now with a trailing
+    wildcard) can also improve efficiency, as any index on the inverse values
+    may now come into use by the query optimizer:
+  </p>
+  
+  <sample src="LikeWithLeadingWildcardGood2.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SSEPEK_11.0.0/sqlref/src/tpc/db2z_likepredicate.html">LIKE predicate</a>.
+  </li>
+</references>
+
+</qhelp>

@@ -1,0 +1,46 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When a scope terminator, such as <code>END-IF</code> or <code>END-EVALUATE</code>,
+    does not align with the start of the statement it belongs to,
+    code becomes harder to read.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Move the scope terminator to start in the same column as the statement it belongs to.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following example has two <code>IF</code> statements, one nested in the other.
+    A scope terminator, <code>END-IF</code>, 
+    has been put in line with the outer <code>IF</code> statement.
+  </p>
+
+  <sample src="ScopeTerminatorMisalignedBad.CBL" />
+  
+  <p>
+    The position of this scope terminator is misleading, however,
+    as it really belongs to the inner <code>IF</code> statement.
+    This becomes clear when the scope terminator is aligned correctly,
+    as in the following example:
+  </p>
+
+  <sample src="ScopeTerminatorMisalignedGood.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/en/SS6SG3_3.4.0/com.ibm.entcobol.doc_3.4/cppgm42.htm">scope terminators</a>.
+  </li>
+</references>
+
+</qhelp>

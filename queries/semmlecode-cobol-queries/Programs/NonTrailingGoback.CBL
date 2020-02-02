@@ -1,0 +1,4 @@
+000100 IF SOME-CONDITION THEN
+000200   GOBACK
+000300   DISPLAY "*** this will never be executed ***"
+000400 END-IF

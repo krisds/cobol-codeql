@@ -1,0 +1,53 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When reading a file which has no file status field set, the <code>READ</code>
+    statement should include code to handle the relevant file statuses.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Add one of the <code>AT END</code> or <code>INVALID KEY</code> clauses, as needed.
+  </p>
+</recommendation>
+
+<example>
+<p>
+In the following example, the <code>READ</code> statement is reading from a file
+which has no file status field set:
+</p>
+
+<sample src="ReadFromFileWithoutStatus.CBL" />
+
+<p>
+As it stands, whenever this <code>READ</code> statement has hit the end of the file, 
+or if it is using an invalid key as index, the code will have had no chance to handle
+these situations.
+</p>
+
+<p>
+To address these possible error conditions, add an <code>AT END</code> clause,
+as in the following example.
+</p>
+
+<sample src="ReadFromFileWithoutStatusWithAtEnd.CBL" />
+
+<p>
+You can also add an <code>INVALID KEY</code> clause, as in the following example.
+</p>
+
+<sample src="ReadFromFileWithoutStatusWithInvalidKey.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsread.html">the READ Statement</a>.
+  </li>
+</references>
+</qhelp>

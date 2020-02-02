@@ -1,0 +1,56 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Performing ranges of procedures makes code harder to understand 
+    and makes it difficult to guess what will exactly be run. 
+    The code becomes harder to maintain as, for instance, rearranging procedures
+    may break these ranges.
+    In addition the COBOL optimizer may not optimize any paragraph or section
+    that is subject to a <code>PERFORM THROUGH</code>.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Establish a new, aptly named, procedure which invokes all procedures explicitly.
+    Then replace the ranged <code>PERFORM</code> statement with a call to this new procedure.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following example shows a ranged <code>PERFORM</code> statement which invokes
+    procedures <code>FIND-OPEN-INVOICES</code> through <code>FINALIZE-PAYMENTS</code>:
+  </p>
+
+  <sample src="AvoidPerformThruBad.CBL" />
+  
+  <p>
+    A better approach is to add an extra procedure which invokes the right procedures,
+    and replace the ranged <code>PERFORM</code> with a singular version.
+    Here we have named the new procedure <code>PAYMENT-PROCESSING</code>:
+  </p>
+  
+  <sample src="AvoidPerformThruGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center: 
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsperf.html">PERFORM statement</a>.
+  </li>
+  <li>
+    Wikipedia: 
+    <a href="https://en.wikipedia.org/wiki/Structured_programming">Structured programming</a>.
+  </li>
+  
+  
+</references>
+
+</qhelp>

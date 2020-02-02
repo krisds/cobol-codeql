@@ -1,0 +1,66 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Moving a value to a data item in a <code>MOVE</code> statement may lead to unexpected results.
+    Further references to that data item in the same MOVE statement (for example, in subscripts)
+    will still yield the data item original value.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Do not reference a data item twice in a target list of a <code>MOVE</code> statement.
+    Either rework the references, or split up the <code>MOVE</code> statement into separate steps.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Consider the following example, 
+    and assume that <code>B</code> has a value of 7, 
+    and <code>X</code> a value of 11:
+  </p>
+
+  <sample src="MoveWithSideEffectsBad.CBL" />
+  
+  <p>
+    You may expect this to first set the value of <code>B</code> to 11
+    and then use that value to set <code>C(B)</code> to 11 as well.
+    That is, <code>C(11)</code> would become 11.
+  </p>
+  
+  <p>
+    What really happens though is that <code>C(7)</code> will be set to 11.
+    The assignment to <code>B</code> will not be applied in further targets
+    until the <code>MOVE</code> statement has completed.
+    This means that the above example is actually equivalent to:
+  </p>
+
+  <sample src="MoveWithSideEffectsActual.CBL" />
+  
+  <p>
+    One correct way to obtain the desired effect might be to write the following:
+  </p>
+
+  <sample src="MoveWithSideEffectsGood.CBL" />
+  
+  <p>
+    Another would be to split up the <code>MOVE</code> statement into two steps:
+  </p>
+
+  <sample src="MoveWithSideEffectsAlsoGood.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsmove.html">MOVE statement</a>
+  </li>
+</references>
+
+</qhelp>

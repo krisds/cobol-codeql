@@ -1,0 +1,56 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When a table is defined in the <code>DATA DIVISION</code>, it may
+    be assigned a special index variable using the <code>INDEXED
+    BY</code> phrase. If the table is to be accessed many times in a
+    loop, and an index variable is not used, the code will be less
+    efficient.
+  </p>
+  <p>
+    According to IBM documentation, the additional CPU time
+    can range from around 40% to 300%.
+    <code>BINARY</code> datatypes are faster than <code>PACKED DECIMAL</code>,
+    and <code>DISPLAY</code> datatypes are the slowest overall.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Update the table definition to include an <code>INDEXED BY</code>
+    phrase, and use this in any loop where a table subscript is used.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example the table <code>SCREEN-LINE</code> is
+    initialized by replacing each line with <code>SPACES</code>. This
+    is done by <code>VARYING</code> the data item <code>LINEX</code>.
+  </p>
+
+  <sample src="NonIndexSubscriptInLoop.CBL" />
+  
+  <p>
+    Below, the code has been updated to use an <code>INDEXED BY</code>
+    phrase and the <code>PERFORM</code> loop now uses the special
+    index variable as the table subscript instead:
+  </p>
+  <sample src="NonIndexSubscriptInLoopGood.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlddeinb.html">INDEXED BY phrase</a>.
+  </li>
+  <li>IBM Support Portal:
+    <a href="http://www-01.ibm.com/support/docview.wss?uid=swg27018287">Enterprise COBOL Version 4 Release 2 Performance Tuning</a>.
+  </li>
+</references>
+
+</qhelp>

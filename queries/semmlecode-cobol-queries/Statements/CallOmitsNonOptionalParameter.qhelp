@@ -1,0 +1,53 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Omitting a non-optional parameter when calling a program may cause unexpected
+    behavior.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Adjust your <code>CALL</code> to pass an actual value.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following program expects two parameters, with the second being optional:
+  </p>
+
+  <sample src="CallOmitsNonOptionalParameterTarget.CBL" />
+  
+  <p>
+    As a consequence, this <code>CALL</code> statement is incorrect, as it omits
+    the non-optional parameter.
+  </p>
+  
+  <sample src="CallOmitsNonOptionalParameterBad.CBL" />
+  
+  <p>
+    In contrast, the following version is allowed, as it omits the optional parameter.
+  </p>
+  
+  <sample src="CallOmitsNonOptionalParameterGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpscall.html">CALL statement</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpdshd.html">PROCEDURE DIVISION header</a>.
+  </li>
+</references>
+
+</qhelp>

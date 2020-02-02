@@ -1,0 +1,61 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When returning data from one program to another, if the
+    size of the receiving parameter is smaller than that of the argument
+    being passed then the data is truncated.
+    The exact truncation behavior is determined by the
+    categories of the data items in question, and by
+    the <code>TRUNC</code> compiler option. This may result in silent
+    data loss.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Ensure that receiving items have sufficient space for the data
+    being transferred to them. 
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Consider a subprogram which returns a value for a 
+    <code>YEAR</code> field as a four-digit number:
+  </p>
+
+  <sample src="CallReturnValueTruncatedTarget.CBL" />
+  
+  <p>
+    If the receiving program defines the return value for the <code>YEAR</code>
+    field as having only two digits, truncation of the actual value will occur.
+  </p>
+  
+  <sample src="CallReturnValueTruncatedBad.CBL" />
+  
+  <p>
+    Increasing the size of the <code>YEAR</code> field is sufficient to
+    ensure that no data gets lost.
+  </p>
+  
+  <sample src="CallReturnValueTruncatedGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpscall.html">CALL statement</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SGM_4.1.1/com.ibm.cobol.aix.doc/PGandLR/ref/rlpdshd.html">PROCEDURE DIVISION header</a>.
+  </li>
+</references>
+
+</qhelp>

@@ -1,0 +1,27 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Defining a file in the <code>FILE-CONTROL</code> paragraph
+    indicates that the contents of this file will be manipulated in some way by the program.
+    If this is not the case, doing so suggests unmaintained code.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Remove the file definition if the file is not needed by the program.
+  </p>
+</recommendation>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SSPSQF_9.0.0/com.ibm.etools.iseries.langref.doc/evfeb4ls19.htm">FILE-CONTROL paragraph</a>.
+  </li>
+</references>
+
+</qhelp>

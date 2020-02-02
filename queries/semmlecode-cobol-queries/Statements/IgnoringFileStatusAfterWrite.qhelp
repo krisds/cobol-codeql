@@ -1,0 +1,51 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When a file status field is set for a file, the file status should be checked 
+    immediately after any <code>WRITE</code> statement that uses the file.
+    This prevents unexpected errors from breaking the program.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Add an <code>IF</code> statement which tests the file status field.
+  </p>
+</recommendation>
+
+<example>
+<p>
+In the following example, the <code>WRITE</code> statement reads from a file that has a file status field set:
+</p>
+
+<sample src="IgnoringFileStatusAfterWriteBad.CBL" />
+
+<p>
+As it stands, whenever this <code>WRITE</code> references a file which was not previously opened, 
+or if it is using an invalid key as an index, the code will have had no chance to handle
+these situations.
+</p>
+
+<p>
+To address these possible error conditions, add an <code>IF</code> statement to test
+the file status field, as in the following example.
+</p>
+
+<sample src="IgnoringFileStatusAfterWriteGood.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rliossta.html">FILE STATUS clause</a>.
+  </li>
+  <li>
+    IBM Knowledge Center: <a href="http://www.ibm.com/support/knowledgecenter/SS6SG3_3.4.0/com.ibm.entcobol.doc_3.4/rlpswrit.htm">WRITE statement</a>.
+  </li>
+  
+</references>
+</qhelp>

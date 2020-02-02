@@ -1,0 +1,32 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    The <code>ALTER</code> statement is classed as an obsolete element
+    in the ANSI'85 standard and has been deleted from the ISO 2002
+    standard. <code>ALTER</code> is used to change the target of a
+    <code>GO TO</code> statement elsewhere in the same procedure
+    division. Its use is strongly discouraged as it makes the
+    unstructured control flow of a <code>GO TO</code> statement even
+    less comprehensible and maintainable. The non-local modification
+    of other code also increases the likelihood of accidentally
+    introducing breaking changes at the target site.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Replace the <code>ALTER</code> statement with structured
+    programming constructs such as the <code>EVALUATE</code>
+    statement or an inline <code>PERFORM</code> statement.
+  </p>
+</recommendation>
+
+<include src="AlterExample.qhelp" />
+
+<include src="AlterReferences.qhelp" />
+
+</qhelp>

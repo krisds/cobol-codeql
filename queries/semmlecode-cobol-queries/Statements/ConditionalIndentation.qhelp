@@ -1,0 +1,61 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Decision statements such as <code>IF</code> and
+    <code>EVALUATE</code> can contain multiple statements in their
+    branches (<code>THEN</code>, <code>ELSE</code>
+    or <code>WHEN</code>). It is recommended to use indentation to
+    differentiate the statements that are contained by the branch from
+    both the decision statement and the code that follows. This
+    improves readability by making the flow of control clear.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Indent the statements that make up branches, but use the same
+    amount of indentation for statements that follow each other in a
+    sequence of statements.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, the indentation of the <code>ADD</code>
+    statement makes it look like it is executed independently of the
+    truth of the condition in the <code>IF</code> statement. However,
+    it is logically part of the <code>THEN</code> branch and will only
+    be executed after the <code>MOVE</code> statement.
+  </p>
+
+  <sample src="ConditionalIndentation.CBL" />
+  
+  <p>
+    If the intention was the behavior described above, then you should
+    indent the <code>ADD</code> statement to make this clear.
+  </p>
+  <sample src="ConditionalIndentationGood.CBL" />
+
+  <p>
+    If the <code>ADD</code> statement should be executed
+    unconditionally then either end the sentence after
+    the <code>MOVE</code> statement (with a period), or insert
+    <code>END-IF</code> (as below) to clearly delineate the scope of
+    the <code>IF</code> statement.
+  </p>
+  <sample src="ConditionalIndentationGood2.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsif.html">IF statement</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpseval.html">EVALUATE statement</a>.
+  </li>
+</references>
+
+</qhelp>

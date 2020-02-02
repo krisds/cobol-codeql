@@ -1,0 +1,44 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+An out-of-line <code>PERFORM</code> statement will transfer control to
+the procedure name indicated by the first argument, and continue
+execution until the end of the procedure name indicated by the second
+argument. If the second argument is identical to the first, then it
+has no effect.
+</p>
+</overview>
+
+<recommendation>
+  <p>
+    Determine whether the intention is to execute only the first
+    target, or whether the second argument is incorrect. If only the
+    first target should be executed, delete the second argument. If
+    the second target is incorrect then update the target name.
+  </p>
+</recommendation>
+
+<example>
+<p>
+  In the following example the <code>PERFORM</code> statement will cause the statements in the paragraph or section <code>A</code> to be executed.
+</p>
+
+<sample src="PerformRedundant.CBL" />
+
+<p>
+The simplified form is easier to understand, and avoids any ambiguity over whether the duplication was intentional.
+</p>
+
+<sample src="PerformRedundantGood.CBL" />
+
+</example>
+<references>
+  <li>
+    IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsperf.html">PERFORM statement</a>.
+  </li>
+</references>
+</qhelp>

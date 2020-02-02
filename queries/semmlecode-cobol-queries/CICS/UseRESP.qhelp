@@ -1,0 +1,47 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    CICS calls may raise status conditions during their execution.
+    Ignoring these status conditions may cause unexpected behavior.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    You can use the <code>RESP</code> option on CICS commands
+    to capture the status condition in a data item of your choice.
+    This makes it possible to check the result of that CICS command
+    for any abnormal status condition.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following CICS call ignores the status condition, 
+    making it impossible to know for sure whether it failed or not:
+  </p>
+
+  <sample src="UseRESPBad.CBL" />
+  
+  <p>
+    By adding the <code>RESP</code> we can capture the status condition
+    and test it in the code:
+  </p>
+  
+  <sample src="UseRESPGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="https://www.ibm.com/support/knowledgecenter/SSGMCP_5.1.0/com.ibm.cics.ts.systemprogramming.doc/topics/dfha80r.html">RESP and RESP2 options</a>.
+  </li>
+</references>
+
+</qhelp>

@@ -1,0 +1,52 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When calling an IMS DB DL/I function, a status code gets returned
+    in the Program Communication Block (PCB) which was passed along.
+    Ignoring these status conditions may cause unexpected behavior.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Test the status code which was set in the PCB right after the DL/I call.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following DL/I function call ignores the status condition, 
+    making it impossible to know for sure whether it failed or not:
+  </p>
+
+  <sample src="PCBStatusCheckMissingBad.CBL" />
+  
+  <p>
+    It is recommended to test the status code defined in the PCB
+    before doing anything else:
+  </p>
+  
+  <sample src="PCBStatusCheckMissingGood.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/en/SS6SG3_4.2.0/com.ibm.entcobol.doc_4.2/MG/igymch1709.htm">DL/I call interface</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SSEPH2_12.1.0/com.ibm.ims12.doc.apg/ims_codingbatchcobol.htm">Coding a batch program in COBOL</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="https://www.ibm.com/support/knowledgecenter/en/SSEPH2_13.1.0/com.ibm.ims13.doc.msgs/compcodes/ims_dlistatuscodestables.htm">About DL/I status codes</a>.
+  </li>
+</references>
+
+</qhelp>

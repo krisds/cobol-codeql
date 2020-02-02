@@ -1,0 +1,40 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+<overview>
+<p>
+This metric measures the average cyclomatic complexity of the programs
+in a file. The cyclomatic complexity of a program is the number of
+linearly independent execution paths through that program.
+</p>
+
+<p>
+Programs with high cyclomatic complexity are typically hard to
+understand and test. By extension, files whose methods have a high average
+cyclomatic complexity are problematic, and usually would benefit from
+refactoring.
+</p>
+
+</overview>
+<recommendation>
+
+<p>
+Programs with high cyclomatic complexity should be simplified, for instance by
+tidying up any complex logic within them or by splitting them into multiple simpler programs.
+</p>
+
+
+</recommendation>
+<references>
+
+<li>
+T. J. McCabe. <em>A Complexity Measure</em>. IEEE Transactions on Software Engineering, SE-2(4), December 1976.
+</li>
+<li>
+Wikipedia: <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity">Cyclomatic complexity</a>.
+</li>
+
+
+</references>
+</qhelp>

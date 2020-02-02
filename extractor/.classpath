@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/util-java7"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/query-cli"/>
+	<classpathentry kind="lib" path="/resources/lib/java/logback-classic-1.2.3.jar" sourcepath="/resources/lib/java/logback-classic-1.2.3-sources.jar"/>
+	<classpathentry kind="lib" path="/resources/lib/java/logback-core-1.2.3.jar" sourcepath="/resources/lib/java/logback-core-1.2.3-sources.jar"/>
+	<classpathentry kind="lib" path="/resources/lib/java/slf4j-api-1.7.26.jar" sourcepath="/resources/lib/java/slf4j-api-1.7.26-sources.jar"/>
+	<classpathentry kind="lib" path="/resources/lib/koopa-5a32894-lite.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/util-java8"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,50 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Cursors take up resources in the database.
+    Not closing them may therefore introduce resource leaks,
+    which can slow down your application and the database.
+    In addition, it is an error to open a cursor which is already open.
+    Therefore careful management of any cursor in use is important.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Add a statement to close any opened cursor at an appropriate place
+    in your program logic.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following SQL call opens a cursor:
+  </p>
+
+  <sample src="CloseOpenCursorsOpen.CBL" />
+  
+  <p>
+    Make sure to add an equivalent call to close it again:
+  </p>
+  
+  <sample src="CloseOpenCursorsClose.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/en/SSEPEK_11.0.0/sqlref/src/tpc/db2z_sql_open.html">OPEN</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/en/SSEPEK_11.0.0/sqlref/src/tpc/db2z_sql_close.html">CLOSE</a>.
+  </li>
+</references>
+
+</qhelp>

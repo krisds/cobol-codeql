@@ -1,0 +1,13 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>
+      This metric measures the number of CICS commands in each compilation unit.
+    </p>
+  </overview>
+  <references>
+    <li>IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSGMGV/welcome.html?lang=en">CICS Transaction Server</a>.</li>
+  </references>
+</qhelp>

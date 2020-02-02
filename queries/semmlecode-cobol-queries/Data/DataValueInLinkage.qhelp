@@ -1,0 +1,50 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Do not use the data value clause in the linkage section.  Value clauses
+    on data item description entries in the linkage section (apart from
+    condition-name entries) have no effect.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Use the data value clause on data item description entries in the
+    working-storage or local-storage section to specify the initial value
+    of a data item.  Use the data value clause on condition-name (level-88)
+    data item description entries to associate values with a
+    condition-name.  Do not use the data value clause on other data item
+    description entries in the linkage section.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, the data item <code>INPUT-01</code> has value
+    <code>"A"</code>.  Since the data item description entry is in the linkage
+    section the value clause will have no effect.
+  </p>
+
+  <sample src="DataValueInLinkage.CBL" />
+  
+  <p>
+    The next three value clauses, with values <code>"R"</code>, <code>"G"</code>
+    and <code>"B"</code>, are good.  This is because they are in condition-name data
+    item description entries, so they specify the value(s) associated with a
+    condition-name and not the initial contents for a data item.  The final value
+    clause, with value <code>"Z"</code>, is good because it is not in the linkage
+    section.
+  </p>
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_4.1.0/com.ibm.entcobol.doc_4.1/PGandLR/ref/rlddeval.htm">VALUE clause</a>.
+  </li>
+</references>
+
+</qhelp>

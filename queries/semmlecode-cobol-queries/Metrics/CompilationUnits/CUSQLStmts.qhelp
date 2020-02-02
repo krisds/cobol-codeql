@@ -1,0 +1,13 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>
+      This metric measures the number of SQL statements in each compilation unit.
+    </p>
+  </overview>
+  <references>
+    <li>IBM Knowledge Center, <a href="http://www-01.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/com.ibm.db2z10.doc.ugref/src/tpc/db2z_utl_execsql.dita">EXEC SQL</a>.</li>
+  </references>
+</qhelp>

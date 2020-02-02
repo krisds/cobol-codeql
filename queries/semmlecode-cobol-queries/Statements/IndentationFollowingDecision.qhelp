@@ -1,0 +1,58 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    A statement that follows a decision statement, but is indented
+    further to the right, will appear visually to be part of a branch
+    of the decision statement, and therefore to be executed
+    conditionally. However, such a statement will always be executed.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Use the same amount of indentation of statements that follow each
+    other. Use an <code>END-IF</code> phrase where appropriate to
+    clearly separate the branch of an <code>IF</code> from the
+    following statements.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the example below, the <code>ADD</code> statement appears to be
+    part of the <code>THEN</code> branch of the <code>IF</code>
+    statement. However, due to the period on line 000200 that ends the
+    sentence, it will always be executed. 
+  </p>
+
+  <sample src="IndentationFollowingDecision.CBL" />
+  
+  <p>
+    If the <code>ADD</code> statement should always be executed, make
+    this clear by inserting an <code>END-IF</code> phrase and
+    correcting the indentation.
+  </p>
+  <sample src="IndentationFollowingDecisionGood.CBL" />
+
+  <p>
+    If the <code>ADD</code> statement should only be executed if the
+    condition <code>X GREATER THAN Y</code> is true, then correct the
+    program by removing the first separator period. It is also clearer
+    to use an <code>END-IF</code> phrase, which makes the intention of
+    the programmer unambiguous.
+  </p>
+  <sample src="IndentationFollowingDecisionGood2.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsif.html">IF statement</a>.
+  </li>
+</references>
+
+</qhelp>

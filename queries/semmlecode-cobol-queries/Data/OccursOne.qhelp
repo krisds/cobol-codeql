@@ -1,0 +1,23 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+  <overview>
+  <p>
+    The use of an array is not required if the array will only ever have a single element.
+  </p>
+  </overview>
+
+  <example>
+  <p>Following data item is an array of a single element. The array here is not required,
+    and removing it should make for simpler code.</p>
+
+  <sample src="OccursOneBad.CBL" />
+
+  <p>To resolve the issue, just remove the <code>OCCURS</code> clause.</p>
+
+  <sample src="OccursOneGood.CBL" />
+  
+  </example>
+</qhelp>

@@ -1,0 +1,17 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>
+      This metric measures the number of CICS commands that reference temporary storage queues in each compilation unit.
+    </p>
+  </overview>
+  <references>
+    <li>
+      IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSGMCP_4.2.0/com.ibm.cics.ts.performance.doc/topics/dfht3_tempstor_overview.html?lang=en">CICS temporary storage: overview</a>,
+      <a href="http://www-01.ibm.com/support/knowledgecenter/SSGMCP_4.2.0/com.ibm.cics.ts.applicationprogramming.doc/commands/dfhp4_readqts.html?cp=SSGMCP_4.2.0%2F11-7-175&amp;lang=en">READQ TS</a>,
+      <a href="http://www-01.ibm.com/support/knowledgecenter/SSGMCP_4.2.0/com.ibm.cics.ts.applicationprogramming.doc/commands/dfhp4_writeqts.html?cp=SSGMCP_4.2.0%2F11-7-314&amp;lang=en">WRITEQ TS</a>.
+    </li>
+  </references>
+</qhelp>

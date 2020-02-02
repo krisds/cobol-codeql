@@ -1,0 +1,45 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Opening files can be an expensive operation. Repeatedly opening the same
+    file is therefore discouraged.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Rather than repeatedly opening a file, buffer the data into memory and read
+    it from there.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Following loop will open <code>DATA-FILE</code> multiple times, which can
+    incur a high runtime cost:
+  </p>
+
+  <sample src="AvoidOpenInLoopsBad.CBL" />
+  
+  <p>
+    A better approach is to open the file only once, read the data into memory,
+    and then process the data from there.
+  </p>
+  
+  <sample src="AvoidOpenInLoopsGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_4.2.0/com.ibm.entcobol.doc_4.2/PGandLR/ref/rlpsopen.htm?lang=en">OPEN statement</a>.
+  </li>
+</references>
+
+</qhelp>

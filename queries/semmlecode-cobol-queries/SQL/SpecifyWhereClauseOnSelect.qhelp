@@ -1,0 +1,26 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Selecting data without a condition will have you read all data from the selected tables.
+    Depending on the size of these tables this may be very costly and take a long time.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Analyze the program to see whether you can add restrictions on the data to be selected in the database.
+  </p>
+</recommendation>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/en/SSEPEK_11.0.0/sqlref/src/tpc/db2z_sql_select.html">SELECT</a>.
+  </li>
+</references>
+
+</qhelp>

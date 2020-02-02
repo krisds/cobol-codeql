@@ -1,0 +1,26 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    SQL cursor declarations are not executable statements and, as such,
+    do not belong in the procedure division. 
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Define cursor declarations in the data division instead of the procedure division.
+  </p>
+</recommendation>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/sqlref/src/tpc/db2z_sql_declarecursor.html">DECLARE CURSOR</a>.
+  </li>
+</references>
+
+</qhelp>

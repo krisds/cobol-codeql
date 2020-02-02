@@ -1,0 +1,44 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    An empty section has no purpose. Even if it is used as the target
+    of another statement, such as <code>GO TO</code> or
+    <code>PERFORM</code>, control will pass immediately to the
+    following section.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    To improve readability, and avoid confusion by any mention of this
+    section elsewhere, it should be deleted. References to this section
+    elsewhere in the procedure division should be checked, to confirm
+    that they should still point to the following section, and updated.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example section <code>TWO</code> is empty and should be removed.
+  </p>
+
+  <sample src="EMPTYSECTION.CBL" />
+  
+  <p>
+    The updated code below has the same meaning.
+  </p>
+  <sample src="EMPTYSECTIONGood.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlpdsed.html?lang=en">Procedures</a>.
+  </li>
+</references>
+
+</qhelp>

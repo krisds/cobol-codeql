@@ -1,0 +1,59 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    The <code>CORRESPONDING</code> phrase, when used with a <code>MOVE</code>, 
+    <code>ADD</code> or <code>SUBTRACT</code> statement, causes that statement
+    to be applied to all matching data fields contained within the referenced ones.
+    If, however, there are mismatches in name or data type, the results may be 
+    unexpected.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Rather than coding a single <code>CORRESPONDING</code> phrase, split up the
+    <code>MOVE</code>, <code>ADD</code> or <code>SUBTRACT</code> statement into
+    separate ones; each covering a single pair of data fields.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Given following data definitions:
+  </p>
+
+  <sample src="AvoidCorrespondingData.CBL" />
+  
+  <p>
+    The code below is intended to <code>ADD</code> the fields
+    of <code>REC-A</code> to those in <code>REC-B</code>
+    and <code>REC-C</code>. However, as the names of the fields do not
+    match, the second <code>ADD</code> statement has no effect.
+  </p>
+  
+  <sample src="AvoidCorrespondingBad.CBL" />
+
+  <p>
+    It is better to code an <code>ADD</code> statement for
+    each individual data entry. In this way it is necessary to be
+    explicit about the intended effect, and it is harder to introduce
+    errors.
+  </p>
+  
+  <sample src="AvoidCorrespondingGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_4.2.0/com.ibm.entcobol.doc_4.2/PGandLR/ref/rlpdscor.htm">CORRESPONDING phrase</a>.
+  </li>
+</references>
+
+</qhelp>

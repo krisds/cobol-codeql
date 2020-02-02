@@ -1,0 +1,45 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    When reading data from, or writing data to, an array in a loop, care must be taken
+    not to exceed the bounds of the array. Failing to do so may lead to unpredictable
+    behavior, bad data or even program crashes.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Constrain the loop by adding an explicit test on the value of any array index
+    being used and incremented in that loop.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following example shows a loop reading from a file and moving the data into an array.
+    The loop is executed until the end of the file is reached.
+    If, however, the file contains more data than the array can contain, the loop will overflow
+    the array and start writing data in unexpected locations in memory.
+  </p>
+
+  <sample src="PossibleArrayOverflowBad.CBL" />
+
+  <p>
+    To resolve this problem, simply extend the condition of the loop with a test of the
+    value of the index used for the array:
+  </p>
+
+  <sample src="PossibleArrayOverflowGood.CBL" />
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SS6SG3_4.2.0/com.ibm.entcobol.doc_4.2/PGandLR/tasks/tptbl02.htm">Handling Tables</a>
+  </li>
+</references>
+
+</qhelp>

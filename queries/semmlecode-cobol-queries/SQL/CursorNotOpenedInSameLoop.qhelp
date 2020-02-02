@@ -1,0 +1,46 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Closing cursors which are not open may cause errors.
+    Closing cursors in a loop may exacerbate this problem.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Make sure that you open the cursor in the loop in which it is closed.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following code closes a cursor in a loop, but does not open it:
+  </p>
+
+  <sample src="CursorNotOpenedInSameLoopBad.CBL" />
+  
+  <p>
+    Make sure to add an equivalent call to open it first:
+  </p>
+  
+  <sample src="CursorNotOpenedInSameLoopGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/en/SSEPEK_11.0.0/sqlref/src/tpc/db2z_sql_open.html">OPEN</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/en/SSEPEK_11.0.0/sqlref/src/tpc/db2z_sql_close.html">CLOSE</a>.
+  </li>
+</references>
+
+</qhelp>

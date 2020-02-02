@@ -1,0 +1,67 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Misplaced periods hamper readability and are a common source of bugs.
+    One reason for this is that periods are sometimes necessary and other times optional.
+    Another is that their small size makes them easily overlooked.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Howard E. Tompkins proposed a Cobol style to overcome this problem,
+    which is referred to as the "minimum-period style".
+  </p>
+  <p>
+    The style dictates that periods should only be used where absolutely necessary.
+    In practice this means that all statements should become "period-free" or, 
+    put differently, end with their appropriate end marker (e.g. <code>END-IF</code>, <code>END-READ</code>).
+  </p>
+  <p>
+    In addition, periods should only appear in column 12, alone on the line,
+    so they become easier to see.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In "Beginning COBOL for programmers" Michael Coughlan uses the following example
+    to illustrate the problem with spurious periods.
+    If you look closely you can find a period hiding on the fourth line,
+    which changes the meaning of the code from what you may have suspected it was,
+    based solely on its indentation.
+  </p>
+
+  <sample src="MinimumPeriodStyleBad.CBL" />
+  
+  <p>
+    If this code had been written according to the "minimum-period style"
+    the problem would have become readily apparent, 
+    even if the bad indentation was left intact:
+  </p>
+  
+  <sample src="MinimumPeriodStyleGood.CBL" />
+
+  <p>
+    It is exactly for this reason that the "minimum-period style" is a recommended practice.
+  </p>
+
+</example>
+
+<references>
+  <li>
+    Tompkins HE, In defense of teaching structured COBOL as computer science (or, notes on being sage struck), ACM SIGPLAN Notices, 1983.
+  </li>
+  <li>
+    Baldwin RR, A note on H.E. Tompkins's minimum-period COBOL style, ACM SIGPLAN Notices, 1987.
+  </li>
+  <li>
+    Michael Coughlan, Beginning COBOL for programmers, pp. 82 – 83. Apress, 2014.
+  </li>
+</references>
+
+</qhelp>

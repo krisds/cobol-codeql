@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns:qlpath xmlns:ns="https://semmle.com/schemas/qlpath">
+    <librarypath/>
+    <dbscheme>/semmlecode-cobol-queries/semmlecode.cobol.dbscheme</dbscheme>
+    <defaultImports><defaultImport>cobol</defaultImport></defaultImports>
+</ns:qlpath>

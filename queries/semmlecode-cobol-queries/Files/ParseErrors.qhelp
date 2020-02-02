@@ -1,0 +1,26 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    During database generation the COBOL extractor was unable to process this file. As a result of this failure, LGTM has analyzed a snapshot database that does not represent all of the files in this commit. Analysis results may be incomplete.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    The most likely reasons for failure are that the file:
+  </p>
+  <ol>
+    <li>Uses a different format from that expected by the extractor (by default, fixed).</li>
+    <li>May contain mixed tab and space characters, and the default tab size used by the extractor results in misaligned columns.</li>
+    <li>Uses a feature that the extractor does not understand.</li>
+  </ol>
+  <p>
+    In the first two cases, review the extractor options and consider changing the values for <code>format</code> and <code>tab_length</code>. LGTM users can override these options using the <code>lgtm.yml</code> file. If this does not work, or you think that the extractor doesn't understand a COBOL feature, report the problem for further investigation.
+  </p>
+</recommendation>
+
+</qhelp>

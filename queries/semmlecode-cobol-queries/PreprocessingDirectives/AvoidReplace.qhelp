@@ -1,0 +1,55 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    The <code>REPLACE</code> statement modifies code before it is compiled.
+    This happens on code within the same source file.
+    The effect is that the code you see may be different from the code which actually gets run.
+    As a result, understanding and maintaining such code becomes much harder than it should be.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Analyze the code and work out the effects of the <code>REPLACE</code> statement in place,
+    then remove the <code>REPLACE</code> statement.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    Consider a source file with the following piece of code:
+  </p>
+
+  <sample src="AvoidReplaceBase.CBL" />
+  
+  <p>
+    At first sight this manipulates some data items, namely <code>X-AMOUNT</code> and <code>X-TOTAL</code>.
+    But that assumes that no <code>REPLACE</code> statements are active.
+    The following <code>REPLACE</code> statement, for instance, would change the affected data items
+    to <code>PERSONAL-AMOUNT</code> and <code>PERSONAL-TOTAL</code>
+  </p>
+  
+  <sample src="AvoidReplaceBad.CBL" />
+  
+  <p>
+    A better solution would be to apply the replacements and to get rid of the <code>REPLACE</code> statement.
+    Note that any <code>COPY</code> statements will also need to be amended:
+  </p>
+  
+  <sample src="AvoidReplaceGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://publib.boulder.ibm.com/iseries/v5r1/ic2924/books/c0925392614.htm">REPLACE statement</a>.
+  </li>
+</references>
+
+</qhelp>

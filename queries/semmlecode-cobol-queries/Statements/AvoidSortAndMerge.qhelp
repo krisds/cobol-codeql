@@ -1,0 +1,58 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    It is recommended to avoid using the <code>SORT</code>
+    and <code>MERGE</code> statements
+    as they are inefficient. Normally using external programs such
+    as <code>SYNCSORT</code> or <code>DFSORT</code> directly from JCL
+    is much more efficient. They can be tailored in the JCL to allow
+    for very large volumes of files with multiple dynamically
+    allocated intermediate work files to improve efficiency.
+  </p>
+  <p>
+    Using external programs to sort data also makes code much easier
+    to maintain. If you need to change the sort order then you can
+    simply change the SYSIN card. By contrast, if a <code>SORT</code>
+    statement is used then you need to recompile, relink, and test the
+    module, with the resultant overhead involved.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Replace uses of <code>SORT</code> and <code>MERGE</code> with
+    calls to external tools. This may involve splitting a program into
+    two, with the processing before and after the <code>SORT</code>
+    or <code>MERGE</code> forming the basis for the separate programs.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    An example of a simple <code>SORT</code> can been seen below. A
+    sequence of records of three characters are sorted in ascending
+    alphabetic order.
+  </p>
+  <sample src="AvoidSortAndMerge.CBL" />
+
+  <p>
+    The same sort can be carried out by invoking
+    the <code>DFSORT</code> utility directly with JCL.
+  </p>
+  <sample src="AvoidSortAndMergeGood.jcl" />
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpssort.html">SORT statement</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsmerg.html?lang=en">MERGE statement</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.icea100/xjcl.htm">
+Invoking DFSORT with Job Control Language</a>.
+  </li>
+</references>
+
+</qhelp>

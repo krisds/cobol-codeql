@@ -1,0 +1,42 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Unreachable code almost always indicates missing program logic or a
+    latent bug and should be examined carefully.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Examine the surrounding code to determine why the section,
+    paragraph or statement is unreachable. If the code is no longer
+    needed, remove it.
+  </p>
+</recommendation>
+
+<example>
+<p>
+In the following example, the <code>DISPLAY</code> statement follows an
+<code>EXIT PROGRAM</code> statement and, as a result, will never be executed.
+</p>
+
+<sample src="NonTrailingExit.CBL" />
+
+<p>
+A similar example of a statement following a <code>GOBACK</code>.
+</p>
+
+<sample src="NonTrailingGoback.CBL" />
+
+<p>
+A similar example of a statement following a <code>STOP RUN</code>.
+</p>
+
+<sample src="NonTrailingStopRun.CBL" />
+
+</example>
+</qhelp>

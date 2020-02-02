@@ -1,0 +1,10 @@
++ semmlecode-cobol-queries/Metrics/Files/FLinesOfWater.ql: /Metrics/Files
++ semmlecode-cobol-queries/Metrics/Files/FLinesOfWaterRatio.ql: /Metrics/Files
+
++ semmlecode-cobol-queries/analysis/AstNodeSanity.ql: <analysis>/Analysis
++ semmlecode-cobol-queries/analysis/LocationSanity.ql: <analysis>/Analysis
++ semmlecode-cobol-queries/analysis/Error.ql: <analysis>/Analysis
++ semmlecode-cobol-queries/analysis/UniqueProcedureReferences.ql: <analysis>/Analysis
++ semmlecode-cobol-queries/analysis/UniqueDataReferences.ql: <analysis>/Analysis
++ semmlecode-cobol-queries/analysis/ParagraphsAfterSentences.ql: <analysis>/Analysis
++ semmlecode-cobol-queries/analysis/CopyStatementTargetNotFound.ql: <analysis>/Analysis

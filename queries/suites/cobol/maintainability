@@ -1,0 +1,47 @@
++ semmlecode-cobol-queries/external/DuplicateParagraph.ql: /Maintainability/Duplicate Code
++ semmlecode-cobol-queries/external/DuplicateSection.ql: /Maintainability/Duplicate Code
++ semmlecode-cobol-queries/external/MostlyDuplicateFile.ql: /Maintainability/Duplicate Code
++ semmlecode-cobol-queries/external/SimilarParagraph.ql: /Maintainability/Duplicate Code
++ semmlecode-cobol-queries/external/SimilarSection.ql: /Maintainability/Duplicate Code
++ semmlecode-cobol-queries/external/MostlySimilarFile.ql: /Maintainability/Duplicate Code
+
++ semmlecode-cobol-queries/Programs/UnreachableCode.ql: /Maintainability/Useless Code
+
++ semmlecode-cobol-queries/Statements/EvaluateUseWhenOther.ql: /Maintainability/Statements
++ semmlecode-cobol-queries/Statements/UseGoBackOverStopRun.ql: /Maintainability/Statements
++ semmlecode-cobol-queries/Statements/CallIsDynamic.ql: /Maintainability/Statements
++ semmlecode-cobol-queries/Statements/AvoidPerformThru.ql: /Maintainability/Statements
++ semmlecode-cobol-queries/Metrics/Statements/NestingDepth.ql: /Maintainability/Statements
+     @warning-from 4
+
++ semmlecode-cobol-queries/Statements/AlterObsolete.ql: /Maintainability/Obsolete
+# + semmlecode-cobol-queries/Statements/GoToObsolete.ql: /Maintainability/Obsolete
++ semmlecode-cobol-queries/Statements/StopLiteralObsolete.ql: /Maintainability/Obsolete
+
++ semmlecode-cobol-queries/Data/BlockSizeOverridden.ql: /Maintainability/Hardcoding
+
++ semmlecode-cobol-queries/Data/OccursOne.ql: /Maintainability/Data
++ semmlecode-cobol-queries/Data/FileNotUsed.ql: /Maintainability/Data
+
++ semmlecode-cobol-queries/Statements/AvoidOpenInLoops.ql: /Maintainability/Performance
++ semmlecode-cobol-queries/Statements/AvoidSortAndMerge.ql: /Maintainability/Performance
++ semmlecode-cobol-queries/Statements/AvoidDisplayItemsInComputations.ql: /Maintainability/Performance
++ semmlecode-cobol-queries/Statements/AvoidMixedDatatypesInComputations.ql: /Maintainability/Performance
++ semmlecode-cobol-queries/Data/OccursDependingOnNonBinary.ql: /Maintainability/Performance
++ semmlecode-cobol-queries/Data/BinarySubscriptInLoop.ql: /Maintainability/Performance
++ semmlecode-cobol-queries/Data/DisplaySubscriptInLoop.ql: /Maintainability/Performance
++ semmlecode-cobol-queries/Data/PackedDecimalSubscriptInLoop.ql: /Maintainability/Performance
+
++ semmlecode-cobol-queries/Copybooks/CodeInCopybook.ql: /Maintainability/Reuse
++ semmlecode-cobol-queries/Copybooks/CopybookInProcedureDivision.ql: /Maintainability/Reuse
++ semmlecode-cobol-queries/Copybooks/ChangingSourceFormatInCopybook.ql: /Maintainability/Reuse
+
++ semmlecode-cobol-queries/Sentences/MinimumPeriodStyle.ql: /Maintainability/Sentences
+
++ semmlecode-cobol-queries/PreprocessingDirectives/AvoidReplace.ql: /Maintainability/Preprocessing
+
++ semmlecode-cobol-queries/SQL/DoNotUseDDL.ql: /Maintainability/SQL
++ semmlecode-cobol-queries/SQL/CursorDeclaredInProcedureDivision.ql: /Maintainability/SQL
++ semmlecode-cobol-queries/SQL/AvoidLockTable.ql: /Maintainability/SQL
++ semmlecode-cobol-queries/SQL/LikeWithLeadingWildcard.ql: /Maintainability/Performance/SQL
++ semmlecode-cobol-queries/SQL/CountAllForPresence.ql: /Maintainability/Performance/SQL

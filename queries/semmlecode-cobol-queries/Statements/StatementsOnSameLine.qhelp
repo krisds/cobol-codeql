@@ -1,0 +1,44 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+<p>
+In Cobol, unlike many other languages, statements are not separated by
+punctuation. Multiple statements on a single line can therefore be
+hard to distinguish.
+</p>
+</overview>
+
+<recommendation>
+  <p>
+    Ensure that statements in the same sentence are on different
+    lines. Rather than splitting a data-name across two lines, move
+    the whole data-name to the next line.
+  </p>
+</recommendation>
+
+<example>
+<p>
+In the following example, the <code>ADD</code> and <code>DISPLAY</code> statements are on the same line.
+</p>
+
+<sample src="StatementsOnSameLine.CBL" />
+
+<p>
+This layout may lead to <code>DISPLAY</code> being overlooked when the code is read by a human. To improve the layout, put each statement on a separate line:
+</p>
+
+<sample src="StatementsOnSameLine-fixed.CBL" />
+
+</example>
+
+<references>
+  <li>
+    COBOL Programming Standards, A. J. Marston:
+    <a href="http://www.tonymarston.co.uk/cobol/cobolstandards.html#sentences_and_statements">Sentences
+      and Statements</a>.
+  </li>
+</references>
+</qhelp>

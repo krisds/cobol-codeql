@@ -1,0 +1,43 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Data items should be initialized with the correct data type.  Numeric
+    data items should not be initialized with alphanumeric values.  Conversely,
+    alphanumeric data items should not be initialized with numeric values.  Doing
+    so may lead to runtime errors.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Initialize numeric data items only with numeric values and alphanumeric
+    data items only with alphanumeric values.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, the data item <code>NUMERIC-01</code> has a value
+    of <code>"N/A"</code>.  Since the data item has a numeric type this will lead
+    to unexpected behavior at runtime.
+  </p>
+
+  <sample src="DataInitialization.CBL" />
+  
+  <p>
+    The code above could be corrected by changing the value to <code>0</code> or
+    the data item to an alphanumeric type such as <code>X(20)</code>.
+  </p>
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_4.1.0/com.ibm.entcobol.doc_4.1/PGandLR/ref/rlddeval.htm">VALUE clause</a>.
+  </li>
+</references>
+
+</qhelp>

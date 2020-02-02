@@ -1,0 +1,44 @@
++ semmlecode-cobol-queries/Statements/PerformRedundant.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/PerformOutoflineReversed.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterClose.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterDelete.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterMerge.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterOpen.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterRead.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterReturn.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterRewrite.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterSort.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterStart.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IgnoringFileStatusAfterWrite.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/ReadIgnoringFileStatus.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/AvoidCorresponding.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/MoveStatementIncompatible.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/MoveTruncation.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/MoveWithSideEffects.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/IndentationFollowingDecision.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/PossibleArrayOverflow.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/EndlessVarying.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/CallHasWrongNumberOfArguments.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/CallOmitsNonOptionalParameter.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/CallArgumentTruncated.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/CallExpectingReturnValue.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/CallIgnoringReturnValue.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/CallReturnValueTruncated.ql: /Correctness/Statements
++ semmlecode-cobol-queries/Statements/FileNeverClosed.ql: /Correctness/Statements
+
++ semmlecode-cobol-queries/Paragraphs/DuplicateParagraphName.ql: /Correctness/Paragraphs
+
++ semmlecode-cobol-queries/Data/DataValueInLinkage.ql: /Correctness/Data
++ semmlecode-cobol-queries/Data/DataInitialization.ql: /Correctness/Data
+
++ semmlecode-cobol-queries/Sections/DuplicateSectionName.ql: /Correctness/Sections
+
++ semmlecode-cobol-queries/CICS/UseRESP.ql: /Correctness/CICS
+
++ semmlecode-cobol-queries/SQL/CloseOpenCursors.ql: /Correctness/SQL
++ semmlecode-cobol-queries/SQL/CursorNotOpenedInSameLoop.ql: /Correctness/SQL
++ semmlecode-cobol-queries/SQL/SpecifyWhereClauseOnSelect.ql: /Correctness/SQL
++ semmlecode-cobol-queries/SQL/SpecifyWhereClauseOnUpdate.ql: /Correctness/SQL
+
++ semmlecode-cobol-queries/IMS/PCBStatusCheckMissing.ql: /Correctness/IMS
+

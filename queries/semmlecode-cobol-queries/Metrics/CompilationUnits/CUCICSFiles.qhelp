@@ -1,0 +1,13 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>
+      This metric measures the number of references to files inside CICS commands in each compilation unit.
+    </p>
+  </overview>
+  <references>
+    <li>IBM Knowledge Center: <a href="http://www-01.ibm.com/support/knowledgecenter/SSGMCP_4.2.0/com.ibm.cics.ts.applicationprogramming.doc/topics/dfhp3_intro_filecon.html?cp=SSGMCP_4.2.0%2F11-8-0&amp;lang=en">File control</a>.</li>
+  </references>
+</qhelp>

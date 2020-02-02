@@ -1,0 +1,47 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Nested <code>IF</code> statements without alternate code paths
+    impair readability by splitting what is logically a single
+    condition between multiple statements.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Merge the nested <code>IF</code> statements into a single
+    statement by combining the conditions using the <code>AND</code>
+    logical operator.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, there are two <code>IF</code>
+    statements, one nested inside the other. The <code>DISPLAY</code>
+    statement will only be executed if both of the conditions evaluate
+    to true.
+  </p>
+
+  <sample src="CollapsibleIfStatements.CBL" />
+  
+  <p>
+    This can be simplified by using a single combined condition with
+    <code>AND</code>.
+  </p>
+  <sample src="CollapsibleIfStatementsGood.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsif.html">IF statement</a>.
+  </li>
+</references>
+
+</qhelp>

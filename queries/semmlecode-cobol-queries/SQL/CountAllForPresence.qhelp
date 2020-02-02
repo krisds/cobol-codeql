@@ -1,0 +1,56 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Testing for the presence of matching rows in a database
+    by means of a <code>SELECT COUNT (*)</code> will cause the database
+    to do a full table scan, which is bad for performance.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    It is preferable in these cases to just select a fixed piece of data,
+    and test the return code from the execution of the SQL query to see
+    if there were any matching rows.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following SQL query and subsequent <code>IF</code> statement show how
+    you might code a test for the presence of certain data in a database:
+  </p>
+
+  <sample src="CountAllForPresenceBad.CBL" />
+  
+  <p>
+    The better solution is to ask for fixed data when a match exists,
+    and test the value of <code>SQLCODE</code> afterwards to see if any rows were found:
+  </p>
+  
+  <sample src="CountAllForPresenceGood.CBL" />
+  
+  <p>
+    A value of zero or greater means a successful execution of the query.
+    A value of 100 means there were no (more) rows returned.
+  </p>
+
+</example>
+
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/sqlref/src/tpc/db2z_bif_count.html">COUNT</a>.
+  </li>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www.ibm.com/support/knowledgecenter/SSEPEK_10.0.0/codes/src/tpc/db2z_sqlcodes.html">SQL codes</a>.
+  </li>
+</references>
+
+</qhelp>

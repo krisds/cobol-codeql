@@ -1,0 +1,56 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    A variable-length table is declared using the <code>OCCURS
+    DEPENDING ON</code> phrase. The data item given in this phrase
+    defines the current size of the table. If this data item is not of
+    <code>BINARY</code> type, then a data conversion will have to be
+    performed every time the table is accessed to determine its
+    current size.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Change the definition of the data item given in the <code>OCCURS
+      DEPENDING ON</code> phrase to be either <code>BINARY</code> or
+    one of its synonyms: <code>COMP</code> or <code>COMP-4</code>.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the following example, the data item <code>RETURN-VALUE</code>
+    contains a variable-length table (with size ranging from 1 to
+    10,000). The current size of the table is determined by the data
+    item <code>ENDING-NUMBER</code>, which is a <code>DISPLAY</code>
+    data item.
+  </p>
+
+  <sample src="OccursDependingOnNonBinary.CBL" />
+  
+  <p>
+    Below, a <code>USAGE</code> clause has been added to the
+    definition of <code>ENDING-NUMBER</code>, which will prevent
+    unnecessary conversions from occurring when
+    accessing <code>RETURN-LINE</code>.
+  </p>
+  <sample src="OccursDependingOnNonBinaryGood.CBL" />
+
+</example>
+
+<references>
+  <li>IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlddeoc2.html">OCCURS DEPENDING ON clause</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlddeusa.html">USAGE clause</a>.
+  </li>
+  <li>IBM Support Portal:
+    <a href="http://www-01.ibm.com/support/docview.wss?uid=swg27018287">Enterprise COBOL Version 4 Release 2 Performance Tuning</a>.
+  </li>
+</references>
+
+</qhelp>

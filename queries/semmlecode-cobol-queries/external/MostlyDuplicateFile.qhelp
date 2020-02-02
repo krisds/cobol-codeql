@@ -1,0 +1,51 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>
+      Duplicate modules with identical or very similar contents indicate
+      poorly structured code that is hard to maintain. The
+      artificially inflated amount of code hinders comprehension, and
+      ranges of similar but subtly different lines can mask the real
+      purpose or intention behind a program. Duplicate modules can also
+      suffer from update anomalies, where only one of several copies
+      of the code is updated to address a defect or add a feature,
+      causing them to slowly evolve apart.
+    </p>
+  </overview>
+  
+  <recommendation>
+    <p>
+      While completely duplicated modules are rare, they are usually a
+      sign of a simple oversight. Usually the required action is to
+      remove all but one of them. A common exception to this rule may
+      arise from generated code that simply occurs in several places
+      in the source tree.
+    </p>
+
+    <p>
+      It is far more common to see duplication of many lines between
+      two modules, leaving just a few that are actually different.
+      Consider such situations carefully. Are the differences
+      deliberate or a result of an inconsistent update to one of the
+      clones? If the latter, then treating the modules as completely
+      duplicate and eliminating one (while preserving any corrections
+      or new features that may have been introduced) is the best
+      course. If two modules serve genuinely different purposes but
+      almost all of their lines are the same, that can be a sign that
+      there is a missing level of abstraction. Look for ways to share
+      the functionality, by extracting the common parts to a new
+      program.
+    </p>
+
+  </recommendation>
+
+  <references>
+    <li>Elmar Juergens, Florian Deissenboeck, Benjamin Hummel, and Stefan Wagner. 2009.
+Do code clones matter?  In <em>Proceedings of the 31st International Conference on
+Software Engineering</em> (ICSE '09). IEEE Computer Society, Washington, DC, USA,
+485-495.
+    </li>
+  </references>
+</qhelp>

@@ -1,0 +1,9 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <include src="FLinesOfCodeOverview.qhelp" />
+  </overview>
+  <include src="cobol/LinesOfCodeAddressAndReferences.qhelp" />
+</qhelp>

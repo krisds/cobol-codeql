@@ -1,0 +1,3 @@
+000100 READ FILE-WITHOUT-STATUS
+000200   INVALID KEY
+000300     *> Invalid key logic goes here.

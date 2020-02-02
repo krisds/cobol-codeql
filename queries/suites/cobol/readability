@@ -1,0 +1,14 @@
++ semmlecode-cobol-queries/Statements/StatementsOnSameLine.ql: /Readability/Statements
+
++ semmlecode-cobol-queries/Metrics/Statements/CollapsibleIfNestingDepth.ql: /Readability/Statements
+    @warning-from 1
+
++ semmlecode-cobol-queries/Statements/ConditionalIndentation.ql: /Readability/Statements
++ semmlecode-cobol-queries/Statements/EvaluateWhenConditionalLogic.ql: /Readability/Statements
++ semmlecode-cobol-queries/Statements/UseOfGoTo.ql: /Readability/Statements
++ semmlecode-cobol-queries/Statements/ScopeTerminatorMisaligned.ql: /Readability/Statements
+
++ semmlecode-cobol-queries/Sections/EmptySection.ql: /Readability/Sections
+
++ semmlecode-cobol-queries/Programs/ProgramIdMatchFilename.ql: /Readability/Programs
++ semmlecode-cobol-queries/Copybooks/ProgramStructureInCopybook.ql: /Readability/Programs

@@ -1,0 +1,12 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <references>
+    <li>IBM Knowledge Center:
+      <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlpsalte.html?lang=en">ALTER statement</a>,
+      <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/ref/rlpsgotoc.html?lang=en">Altered GO TO</a>,
+      <a href="http://www-01.ibm.com/support/knowledgecenter/SS6SG3_5.1.0/com.ibm.entcobol.doc_5.1/PGandLR/rlpreobs.html">Obsolete language elements</a>.
+    </li>
+  </references>
+</qhelp>

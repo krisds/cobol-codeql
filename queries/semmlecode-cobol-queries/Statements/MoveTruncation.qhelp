@@ -1,0 +1,51 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    A <code>MOVE</code> statement copies the data from the sending
+    item (on the left) to the receiving items (on the right). If the
+    size of the receivers is smaller than the sender then the data is
+    truncated. The exact truncation behavior is determined by the
+    categories of the data items in question, and by
+    the <code>TRUNC</code> compiler option. This may result in silent
+    data loss.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Ensure that receiving items have sufficient space for the data
+    being transferred to them. 
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    In the example below, the data item <code>WS-RIGHT-21-40</code> is
+    copied to <code>TEMP-STORAGE</code>, which is too small. Any data
+    in the 13 right-most character positions is discarded.
+  </p>
+
+  <sample src="MoveTruncation.CBL" />
+  
+  <p>
+    Increasing the size of the <code>TEMP-STORAGE</code> elementary
+    item is sufficient to ensure that no data is lost.
+  </p>
+  <sample src="MoveTruncationGood.CBL" />
+
+</example>
+
+<references>
+  <li>
+    IBM Knowledge Center:
+    <a href="http://www-01.ibm.com/support/knowledgecenter/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rlpsmovea.html">Elementary moves</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/api/content/nl/en-us/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ref/rldadar.html">Alignment rules</a>,
+    <a href="http://www-01.ibm.com/support/knowledgecenter/api/content/nl/en-us/SSQ2R2_9.0.0/com.ibm.ent.cbl.zos.doc/PGandLR/ui/up4060.html">TRUNC</a>.
+  </li>
+</references>
+
+</qhelp>

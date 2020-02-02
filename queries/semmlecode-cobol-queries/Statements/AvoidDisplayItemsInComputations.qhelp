@@ -1,0 +1,51 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+
+<overview>
+  <p>
+    Avoid using <code>USAGE DISPLAY</code> data items for computations.
+    When these are used, additional conversions to and from the proper numeric types are required.
+    This can add a performance penalty of 20% up to 90% compared to using the proper types.
+  </p>
+</overview>
+
+<recommendation>
+  <p>
+    Use computational data items in computations,
+    and only move this data to <code>DISPLAY</code> items when needed.
+  </p>
+</recommendation>
+
+<example>
+  <p>
+    The following arithmetic is performed on <code>DISPLAY</code> items:
+  </p>
+
+  <sample src="AvoidDisplayItemsInComputationsBad.CBL" />
+  
+  <p>
+    <code>RADIUS</code> will be converted to a computational data item first.
+    The final value will then be converted back to a <code>DISPLAY</code> item
+    so it can be stored in <code>SURFACE</code>.
+  </p>
+  
+  <p>
+    By changing the data items to a computational <code>USAGE</code>, 
+    we not only remove the need for extra conversions, 
+    but we also speed up the calculation:
+  </p>
+  
+  <sample src="AvoidDisplayItemsInComputationsGood.CBL" />
+
+</example>
+
+
+<references>
+  <li>
+    R. J. Arellanes, IBM Enterprise COBOL Version 4 Release 2 Performance Tuning, 2010
+  </li>
+</references>
+
+</qhelp>

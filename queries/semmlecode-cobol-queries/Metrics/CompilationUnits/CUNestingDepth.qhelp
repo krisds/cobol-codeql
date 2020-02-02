@@ -1,0 +1,20 @@
+<!DOCTYPE qhelp PUBLIC
+  "-//Semmle//qhelp//EN"
+  "qhelp.dtd">
+<qhelp>
+  <overview>
+    <p>This metric measures the maximum nesting depth of statements in a compilation unit.</p>
+    
+    <p>
+      A program that contains a high level of nesting can be very difficult to understand. As noted in 
+      [McConnell], the human brain cannot easily handle more than three levels of nested <code>IF</code>
+      statements.
+    </p>
+  </overview>
+
+  <references>
+    <li>
+      S. McConnell, <em>Code Complete</em>, 2nd Edition, &sect;19.4. Microsoft Press, 2004.
+    </li>
+  </references>
+</qhelp>
